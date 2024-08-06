@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require ('express');
 const app = express();
 
@@ -7,7 +8,7 @@ app.get('/', (req, res, next) => {
     res.send(`<h1>SOLOng Tours</h1>`);
 });
 
-app.get('/employees', (req, res, next) => {
+app.get('/users', (req, res, next) => {
     res.send([
         {
           id: 1,

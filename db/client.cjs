@@ -1,4 +1,4 @@
 const { Client } = require('pg');
-const client = new Client(process.env.DATABASE_URL || 'postgres://localhost:5432/solong');
+const client = new Client(process.env.DATABASE_URL);
 
 module.exports = client;
