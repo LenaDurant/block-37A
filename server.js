@@ -9,7 +9,7 @@ app.get('/', (req, res, next) => {
       {
         id: 1,
         name: "ice ice baby",
-        type: "Adventurous",
+        type: "adventurous",
         rating: 4.6
       },
 
