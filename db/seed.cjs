@@ -4,8 +4,9 @@ const client = require('./client.cjs');
 const dropTables = async() => {
   try {
     await client.query(`
+      DROP TABLE IF EXISTS tours;
       DROP TABLE IF EXISTS owners;
-      `)
+      `);
   } catch(err) {
     console.log(err);
   }
@@ -14,10 +15,17 @@ const dropTables = async() => {
 const createTables = async() => {
   try {
     await client.query(`
-      CREATE TABLE owners (
+    CREATE TABLE owners (
       id SERIAL PRIMARY KEY,
       name VARCHAR(30) NOT NULL
-      );
+    );
+
+    CREATE TABLE tours (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(30) NOT NULL,
+      type VARCHAR(30) NOT NULL UNIQUE,
+      owner_id INTEGER REFERENCES owners(id)
+    );
       `);
   } catch(err) {
     console.log(err);
