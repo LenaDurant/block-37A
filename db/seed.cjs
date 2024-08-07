@@ -1,5 +1,6 @@
 require('dotenv').config();
 const client = require('./client.cjs');
+const { createOwner } = require('./owners.cjs');
 
 const dropTables = async() => {
   try {
@@ -24,8 +25,9 @@ const createTables = async() => {
 
     CREATE TABLE tours (
       id SERIAL PRIMARY KEY,
-      name VARCHAR(30) NOT NULL,
+      name VARCHAR(30) NOT NULL UNIQUE,
       type VARCHAR(30) NOT NULL UNIQUE,
+      rating INTEGER NOT NULL,
       owner_id INTEGER REFERENCES owners(id),
     );
       `);
@@ -43,6 +45,9 @@ const syncAndSeed = async() => {
 
     await createTables();
     console.log('TABLES CREATED');
+
+    await createOwner('brad');
+    console.log('OWNERS CREATED');
 
     await client.end();
    }
