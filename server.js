@@ -5,36 +5,60 @@ const app = express();
 app.use(express.json());
 
 app.get('/', (req, res, next) => {
-    res.send(`<h1>SOLOng Tours</h1>`);
+    res.send([
+      {
+        id: 1,
+        type: "ice ice baby"
+      },
+
+      {
+        id: 2,
+        type: "chasing waterfalls"
+      },
+
+      {
+        id: 3,
+        type: "hobbit along"
+      },
+
+      {
+        id: 4,
+        type: "lion queen"
+      },
+    ])
 });
 
 app.get('/users', (req, res, next) => {
     res.send([
         {
           id: 1,
-		      username: "YOLO",
-					password: "YOLO1",
+          name: "bethany ann",
+		      username: "yolo",
+					password: "yolo1",
       
         },
 
 				{
           id: 2,
-					username: "FOMO",
-					password: "FOMO1",
+          name: "brad",
+					username: "fomo",
+					password: "fomo1",
           
         },
 
 				{
           id: 3,
-					username: "GOPRO",
-					password: "GOPRO1",
+          name: "biff",
+					username: "gopro",
+					password: "gopro1",
          
         },
 				
 				{
           id: 4,
-					username: "METRO",
-					password: "METRO1",
+          name: "brett",
+					username: "metro",
+					password: "metro1",
           
         },
 

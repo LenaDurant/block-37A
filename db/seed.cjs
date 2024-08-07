@@ -17,14 +17,16 @@ const createTables = async() => {
     await client.query(`
     CREATE TABLE owners (
       id SERIAL PRIMARY KEY,
-      name VARCHAR(30) NOT NULL
+      name VARCHAR(30) NOT NULL,
+      username VARCHAR(30) NOT NULL UNIQUE,
+      password VARCHAR(30) NOT NULL,
     );
 
     CREATE TABLE tours (
       id SERIAL PRIMARY KEY,
       name VARCHAR(30) NOT NULL,
       type VARCHAR(30) NOT NULL UNIQUE,
-      owner_id INTEGER REFERENCES owners(id)
+      owner_id INTEGER REFERENCES owners(id),
     );
       `);
   } catch(err) {
