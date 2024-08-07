@@ -8,22 +8,26 @@ app.get('/', (req, res, next) => {
     res.send([
       {
         id: 1,
-        type: "ice ice baby"
+        type: "ice ice baby",
+        rating: 4.6
       },
 
       {
         id: 2,
-        type: "chasing waterfalls"
+        type: "chasing waterfalls",
+        rating: 4.9
       },
 
       {
         id: 3,
-        type: "hobbit along"
+        type: "hobbit along",
+        rating: 4.7
       },
 
       {
         id: 4,
-        type: "lion queen"
+        type: "lion queen",
+        rating: 4.8
       },
     ])
 });

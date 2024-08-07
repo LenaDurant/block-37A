@@ -26,6 +26,7 @@ const createTables = async() => {
       id SERIAL PRIMARY KEY,
       name VARCHAR(30) NOT NULL,
       type VARCHAR(30) NOT NULL UNIQUE,
+      rating INTEGER NOT NULL,
       owner_id INTEGER REFERENCES owners(id),
     );
       `);
